@@ -17,9 +17,11 @@ public class Categoria {
     @Column(length = 50, nullable = false)
     private String nome;
 
+    // con mapped by dico che la relazione principale è quella che si trova in Libro
     @ManyToMany(mappedBy = "categorie")
     List<Libro> libri = new ArrayList<>();
 
+    // per evitare un ciclo infinito non inserire nel tostring i libri
     @Override
     public String toString() {
         return "Categoria{" +

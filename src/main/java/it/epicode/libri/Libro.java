@@ -29,13 +29,18 @@ public class Libro {
     *
     *
     * */
+    // il cascade PERSIST permette quando salvo un libro di salvare anche l'autore
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Autore autore;
 
+    // il cascade PERSIST permette quando salvo un libro di salvare anche la casa editrice
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private CasaEditrice casaEditrice;
+
+    //  il cascade PERSIST permette quando salvo un libro di salvare anche tutte le categorie
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<Categoria> categorie = new ArrayList<>();
+
 
     @Override
     public String toString() {

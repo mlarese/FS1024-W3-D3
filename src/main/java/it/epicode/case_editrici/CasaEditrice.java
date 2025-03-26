@@ -19,9 +19,11 @@ public class CasaEditrice {
     @Column(length = 50)
     private String sede;
 
+    // con mapped by dico che la relazione principale è quella che si trova in Libro
     @OneToMany(mappedBy = "casaEditrice")
     List<Libro> libri;
 
+    // per evitare un ciclo infinito non inserire nel tostring i libri
     @Override
     public String toString() {
         return "CasaEditrice{" +
